@@ -13,6 +13,7 @@ export default class UserTableRow extends Component {
     deleteUser() {
         axios.delete('http://localhost:4000/users/delete-user/' + this.props.obj._id)
             .then((res) => {
+                window.location.reload();
                 console.log('Suprrimer User')
             }).catch((error) => {
                 console.log(error)

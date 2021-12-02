@@ -55,6 +55,8 @@ export default class CreateUser extends Component {
       .then(res => console.log(res.data));
 
     this.setState({name: '', date: '', rollno: ''})
+    //mireload page
+    window.location.reload();
   }
 
   render() {
@@ -77,18 +79,35 @@ export default class CreateUser extends Component {
           <Form.Control type="date" value={this.state.date} onChange={this.onChangeUserDate}/>
         </Form.Group>
 
-        <Form.Group controlId="Name">
-          <Form.Label>Homme</Form.Label>
-          <input type="radio" value={this.state.rollno} onChange={this.onChangeUserRollno}/>
-
-          <Form.Label>Femme</Form.Label>
-          <input type="radio" value={this.state.rollno} onChange={this.onChangeUserRollno}/>
-
-          <Form.Label>Autres</Form.Label>
-          <input type="radio" value={this.state.rollno} onChange={this.onChangeUserRollno}/>
+        <Form.Group controlId="Radio">
+          <input
+              type="radio"
+              value="Homme"
+              checked={this.state.rollno === "Homme"}
+              onChange={this.onChangeUserRollno}
+            />
+            Homme
+        </Form.Group>
+        <Form.Group controlId="Radio">
+          <input
+              type="radio"
+              value="Femme"
+              checked={this.state.rollno === "Femme"}
+              onChange={this.onChangeUserRollno}
+            />
+            Femme
+        </Form.Group>
+        <Form.Group controlId="Radio">
+          <input
+              type="radio"
+              value="Autres"
+              checked={this.state.rollno === "Autres"}
+              onChange={this.onChangeUserRollno}
+            />
+            Autres
         </Form.Group>
 
-        <Button variant="danger" size="lg" block="block" type="submit">
+        <Button variant="primary"  block="block" type="submit">
           VALIDER
         </Button>
         </Form>
