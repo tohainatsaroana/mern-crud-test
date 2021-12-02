@@ -8,6 +8,7 @@ import BasicModal from './BasicModal';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import Tooltip from '@mui/material/Tooltip';
 
 const theme = createTheme();
 export default class CreateUser extends Component {
@@ -89,16 +90,19 @@ export default class CreateUser extends Component {
       
    
       <Form onSubmit={this.onSubmit}>
+      <Tooltip title="ENTRER VOTRE NOM" arrow>
         <Form.Group controlId="Name">
           <Form.Label>NOM</Form.Label>
           <Form.Control type="text" value={this.state.name} onChange={this.onChangeUserName}/>
+          
         </Form.Group>
-
+        </Tooltip>
+        <Tooltip title="SELECTIONNER DATE" arrow>
         <Form.Group controlId="Date">
           <Form.Label>Date</Form.Label>
           <Form.Control type="date" value={this.state.date} onChange={this.onChangeUserDate}/>
         </Form.Group>
-
+        </Tooltip>
         <Form.Group controlId="Radio">
           <input
               type="radio"
@@ -126,10 +130,11 @@ export default class CreateUser extends Component {
             />
             Autres
         </Form.Group>
-
+        <Tooltip title="VALIDATION USER" arrow>
         <Button variant="primary"  block="block" type="submit">
           VALIDER
         </Button>
+        </Tooltip>
 
         <BasicModal/>
 

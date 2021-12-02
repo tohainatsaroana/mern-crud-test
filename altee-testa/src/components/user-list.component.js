@@ -4,6 +4,8 @@ import Table from 'react-bootstrap/Table';
 import UserTableRow from './UserTableRow';
 
 
+
+
 export default class UserList extends Component {
 
   constructor(props) {
@@ -39,6 +41,7 @@ export default class UserList extends Component {
 
   render() {
     return (<div className="table-wrapper">
+     
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -54,6 +57,7 @@ export default class UserList extends Component {
           {this.DataTable()}
         </tbody>
       </Table>
+      
     </div>
 
 
