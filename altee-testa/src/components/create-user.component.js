@@ -2,8 +2,14 @@ import React, {Component} from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-import UserList from './user-list.component';
+// import UserList from './user-list.component';
+import Avatar from '@material-ui/core/Avatar';
+import BasicModal from './BasicModal';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 
+const theme = createTheme();
 export default class CreateUser extends Component {
 
   constructor(props) {
@@ -55,7 +61,7 @@ export default class CreateUser extends Component {
 
     this.setState({name: '', date: '', rollno: ''})
     //mireload page
-    window.location.reload();
+    // window.location.reload();
   }
 
   render() {
@@ -66,7 +72,22 @@ export default class CreateUser extends Component {
     
 
     <div className="form-wrapper">
-      <h3>FORMULAIRE</h3>
+      <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+
+      <Box sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+      {/* <Avatar src="/broken-image.jpg"  /> */}
+      <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            
+          </Avatar>
+      
+   
       <Form onSubmit={this.onSubmit}>
         <Form.Group controlId="Name">
           <Form.Label>NOM</Form.Label>
@@ -109,18 +130,26 @@ export default class CreateUser extends Component {
         <Button variant="primary"  block="block" type="submit">
           VALIDER
         </Button>
+
+        <BasicModal/>
+
+        
+
+        {/* window.location.reload(); */}
         </Form>
-        <br></br>
+        </Box>
+        </Container>
+      </ThemeProvider>
+        {/* <br></br>
         <p></p>
         
       <div className="navigation">
-      <h3> LISTE USER </h3>
+     
       <UserList/>
       </div>
-    
+     */}
     
       
-
       
     </div>);
   }

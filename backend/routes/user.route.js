@@ -30,7 +30,8 @@ router.route('/').get((req, res) => {
 
 // 
 router.route('/edit-user/:id').get((req, res) => {
-  userSchema.findById(req.params.id, (error, data) => {
+  const idTypeOj = mongoose.Types.ObjectId(req.params.id)
+  userSchema.findById(idTypeOj, (error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -51,7 +52,7 @@ router.route('/update-user/:id').put((req, res, next) => {
       console.log(error)
     } else {
       res.json(data)
-      console.log('User updated successfully !')
+      console.log('User modifier !')
     }
   })
 })

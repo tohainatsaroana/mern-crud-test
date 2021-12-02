@@ -42,9 +42,12 @@ export default class UserList extends Component {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Nom: {this.state.name}</th>
+            {/* <th>Nom: {this.state.name}</th>
             <th>Date: {this.state.date}</th>
-            <th>Genre: {this.state.rollno}</th>
+            <th>Genre: {this.state.rollno}</th> */}
+            <th>Nom</th>
+            <th>Date</th>
+            <th>Genre</th>
           </tr>
         </thead>
         <tbody>
