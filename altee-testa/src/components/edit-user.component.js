@@ -82,12 +82,35 @@ export default class EditUser extends Component {
           <Form.Control type="date" value={this.state.date} onChange={this.onChangeUserDate} />
         </Form.Group>
 
-        <Form.Group controlId="Name">
-          <Form.Label>Genre</Form.Label>
-          <Form.Control type="text" value={this.state.rollno} onChange={this.onChangeUserRollno} />
+        <Form.Group controlId="Radio">
+          <input
+              type="radio"
+              value="Homme"
+              checked={this.state.rollno === "Homme"}
+              onChange={this.onChangeUserRollno}
+            />
+            Homme
+        </Form.Group>
+        <Form.Group controlId="Radio">
+          <input
+              type="radio"
+              value="Femme"
+              checked={this.state.rollno === "Femme"}
+              onChange={this.onChangeUserRollno}
+            />
+            Femme
+        </Form.Group>
+        <Form.Group controlId="Radio">
+          <input
+              type="radio"
+              value="Autres"
+              checked={this.state.rollno === "Autres"}
+              onChange={this.onChangeUserRollno}
+            />
+            Autres
         </Form.Group>
 
-        <Button variant="danger" size="lg" block="block" type="submit">
+        <Button variant="danger" block="block" type="submit">
           MODIFIER
         </Button>
       </Form>

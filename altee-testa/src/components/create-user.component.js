@@ -3,7 +3,6 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import UserList from './user-list.component';
-import EditUser from './edit-user.component';
 
 export default class CreateUser extends Component {
 
@@ -112,17 +111,11 @@ export default class CreateUser extends Component {
         </Button>
         </Form>
         <br></br>
-        <p>------------------------------------------------------------------------------</p>
+        <p></p>
         
       <div className="navigation">
       <h3> LISTE USER </h3>
       <UserList/>
-
-      <br></br>
-        <p>------------------------------------------------------------------------------</p>
-
-      <h3> EDITER USER </h3>
-      <EditUser/>
       </div>
     
     
