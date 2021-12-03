@@ -9,6 +9,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+
 
 const theme = createTheme();
 export default class CreateUser extends Component {
@@ -130,6 +133,10 @@ export default class CreateUser extends Component {
             />
             Autres
         </Form.Group>
+
+        <Form.Group>
+      <FormControlLabel control={<Switch color="primary" />} label="Entreprise" />
+    </Form.Group>
         <Tooltip title="VALIDATION USER" arrow>
         <Button variant="primary"  block="block" type="submit">
           VALIDER
