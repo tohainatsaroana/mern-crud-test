@@ -22,7 +22,7 @@ export default class EditUser extends Component {
   }
 
   UNSAFE_componentDidMount() {
-    axios.get('http://localhost:4000/users/edit-date/' + this.props.match.params.id)
+    axios.get('http://localhost:4000/users/edit-user/' + this.props.match.params.id)
       .then(res => {
         this.setState({
           name: res.data.name,
@@ -40,7 +40,7 @@ export default class EditUser extends Component {
   }
 
   onChangeUserDate(e) {
-    this.setState({ email: e.target.value })
+    this.setState({ date: e.target.value })
   }
 
   onChangeUserRollno(e) {
@@ -55,18 +55,20 @@ export default class EditUser extends Component {
       date: this.state.date,
       rollno: this.state.rollno
     };
-
-    axios.put('http://localhost:4000/users/update-user/' + this.props.match.params.id, userObject)
+// debugger
+if (this.props.match && this.props.match.params.putID) {
+    // axios.put('http://localhost:4000/users/update-user/' + this.props.match.params.id, userObject)
+     const putID = this.props.match.params.putID;
+     axios.put(`http://localhost:4000/users/update-user/${putID}` , userObject)
       .then((res) => {
         console.log(res.data)
         console.log('user modifier')
       }).catch((error) => {
         console.log(error)
       })
-
-    
     this.props.history.push('/user-list')
   }
+}
 
 
   render() {
@@ -110,7 +112,7 @@ export default class EditUser extends Component {
             Autres
         </Form.Group>
 
-        <Button variant="danger" block="block" type="submit">
+        <Button variant="success" block="block" type="submit">
           MODIFIER
         </Button>
       </Form>

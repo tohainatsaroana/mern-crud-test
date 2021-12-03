@@ -72,9 +72,6 @@ export default class CreateUser extends Component {
     return (
 
 
-      
-    
-
     <div className="form-wrapper">
       <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -93,19 +90,22 @@ export default class CreateUser extends Component {
       
    
       <Form onSubmit={this.onSubmit}>
-      <Tooltip title="ENTRER VOTRE NOM" arrow>
+      
         <Form.Group controlId="Name">
           <Form.Label>NOM</Form.Label>
+          <Tooltip title="ENTRER VOTRE NOM" arrow>
           <Form.Control type="text" value={this.state.name} onChange={this.onChangeUserName}/>
-          
+          </Tooltip>
         </Form.Group>
-        </Tooltip>
-        <Tooltip title="SELECTIONNER DATE" arrow>
+       
+        
         <Form.Group controlId="Date">
           <Form.Label>Date</Form.Label>
+          <Tooltip title="SELECTIONNER DATE" arrow>
           <Form.Control type="date" value={this.state.date} onChange={this.onChangeUserDate}/>
+          </Tooltip>
         </Form.Group>
-        </Tooltip>
+        
         <Form.Group controlId="Radio">
           <input
               type="radio"
