@@ -49,11 +49,4 @@
   input[type=number] {
   -moz-appearance: textfield;
   }
-
-  .avatar {
-    width: 60px;
-    height: 60px;
-    margin: 'auto';
-    text-align: center
-  }
   
