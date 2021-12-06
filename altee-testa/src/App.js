@@ -1,29 +1,81 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// Import React
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import EditUser from "./components/edit-user.component";
-import UserList from "./components/user-list.component";
-import CreateUser from "./components/create-user.component";
-
-
+// Import Bootstrap
+import { Nav, Navbar, Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
+
+// Import Custom CSS
 import "./App.css";
 
+// Import from react-router-dom
+// import { BrowserRouter as Router, Switch,
+// 	Route, Link } from "react-router-dom";
 
+// Import other React Component
+import CreateStudent from
+	"./Components/create-student.component";
+import EditStudent from
+	"./Components/edit-student.component";
+import StudentList from
+	"./Components/student-list.component";
 
+// App Component
+const App = () => {
+return (
+	<Router>
+	<div className="App">
+		<header className="App-header">
+		<Navbar bg="dark" variant="dark">
+			<Container>
+			<Navbar.Brand>
+				<Link to={"/create-student"}
+				className="nav-link">
+				ALTEE TESTA
+				</Link>
+			</Navbar.Brand>
 
+			<Nav className="justify-content-end">
+				<Nav>
+				<Link to={"/create-student"}
+					className="nav-link">
+					CREATION USER
+				</Link>
+				</Nav>
 
-ReactDOM.render(
-   
-   <Router>
-     <Routes>
-     <Route exact path='/' element={<CreateUser/>} />
-      <Route path="/create-student" element={<CreateUser/>} />
-      <Route path="/edit-student/:id" element={<EditUser/>} />
-      <Route path="/student-list" element={<UserList/>} />
-     </Routes>
- </Router>
-   , document.getElementById('root'));
+				<Nav>
+				<Link to={"/student-list"}
+					className="nav-link">
+					LISTE USER
+				</Link>
+				</Nav>
+			</Nav>
+			</Container>
+		</Navbar>
+		</header>
 
-   
+		<Container>
+		<Row>
+			<Col md={12}>
+			<div className="wrapper">
+			<Switch>
+				<Route exact path="/"
+					component={CreateStudent} />
+				<Route path="/create-student"
+					component={CreateStudent} />
+				<Route path="/edit-student/:id"
+					component={EditStudent} />
+				<Route path="/student-list"
+					component={StudentList} />
+				</Switch>
+			</div>
+			</Col>
+		</Row>
+		</Container>
+	</div>
+	</Router>
+);
+};
+
+export default App;
