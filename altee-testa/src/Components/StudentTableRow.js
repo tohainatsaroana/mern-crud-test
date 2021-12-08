@@ -3,8 +3,9 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
 const StudentTableRow = (props) => {
-const { _id, name, date, rollno } = props.obj;
+const { _id, name, date, rollno, taille } = props.obj;
 
 const deleteStudent = () => {
 	axios
@@ -24,6 +25,7 @@ return (
 	<td>{name}</td>
 	<td>{date}</td>
 	<td>{rollno}</td>
+	<td>{taille}</td>
 	<td>
 		<Link className="edit-link"
 		to={"/edit-student/" + _id}>

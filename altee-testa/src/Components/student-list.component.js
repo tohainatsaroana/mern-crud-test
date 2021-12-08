@@ -31,6 +31,7 @@ return (
 			<th>NOM</th>
 			<th>DATE</th>
 			<th>GENRE</th>
+			<th>TAILLE</th>
 			<th>ACTION</th>
 		</tr>
 		</thead>

@@ -8,6 +8,7 @@ const [formValues, setFormValues] = useState({
 	name: "",
 	date: "",
 	rollno: "",
+	taille: "",
 });
 	
 
@@ -35,8 +36,8 @@ useEffect(() => {
 		+ props.match.params.id
 	)
 	.then((res) => {
-		const { name,date, rollno } = res.data;
-		setFormValues({ name, date, rollno });
+		const { name,date, rollno, taille } = res.data;
+		setFormValues({ name, date, rollno, taille });
 	})
 	.catch((err) => console.log(err));
 }, [props.match.params.id]);

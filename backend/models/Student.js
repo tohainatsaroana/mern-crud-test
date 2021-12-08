@@ -10,6 +10,9 @@ date: {
 },
 rollno: {
 	type: String
+},
+taille: {
+	type : Number
 }
 }, {
 	collection: 'students'
