@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { FormGroup, Button,FormLabel } from "react-bootstrap";
 //import ReactDOM from 'react-dom';
 import Taille from "./taille.component"
+import FilesUploadComponent from './files-upload-component';
 
 const StudentForm = (props) => {
 const validationSchema = Yup.object().shape({
@@ -53,6 +54,7 @@ const [selectShortlistedApplicant, setSelectShortlistedApplicant] = React.useSta
 
 return (
 	<div className="form-wrapper">
+		<FilesUploadComponent />
 	<Formik {...props} validationSchema={validationSchema}>
 		<Form>
 		<FormGroup>
