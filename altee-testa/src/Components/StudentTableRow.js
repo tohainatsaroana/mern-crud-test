@@ -2,10 +2,11 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Avatar } from "@material-ui/core";
 
 
 const StudentTableRow = (props) => {
-const { _id, name, date, rollno, taille } = props.obj;
+const { _id, profileImg, name, date, rollno, taille } = props.obj;
 
 const deleteStudent = () => {
 	axios
@@ -22,6 +23,7 @@ const deleteStudent = () => {
 
 return (
 	<tr>
+	<td><Avatar alt="" src={profileImg}  style={{width: "60px", height: "60px" }}/> </td>
 	<td>{name}</td>
 	<td>{date}</td>
 	<td>{rollno}</td>

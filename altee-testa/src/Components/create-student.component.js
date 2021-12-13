@@ -3,7 +3,7 @@ import axios from 'axios';
 import StudentForm from "./StudentForm";
 
 const CreateStudent = () => {
-const [formValues] = useState({ name: '', date: '', rollno: '', taille:'' })
+const [formValues] = useState({ profileImg: '', name: '', date: '', rollno: '', taille:'' })
 
 const onSubmit = studentObject => {
 	axios.post(

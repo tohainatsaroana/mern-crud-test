@@ -13,7 +13,8 @@ rollno: {
 },
 taille: {
 	type : Number
-}
+},
+profileImg: { type   : mongoose.Schema.ObjectId, ref: 'User'}
 }, {
 	collection: 'students'
 })

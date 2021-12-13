@@ -1,7 +1,7 @@
 let express = require('express'),
     multer = require('multer'),
     mongoose = require('mongoose'),
-    { v4 : uuidv4 } = require('uuid'),
+    // { v4: uuidv4 } = require('uuid'),
     router = express.Router();
 
 const DIR = './public/';
@@ -12,7 +12,8 @@ const storage = multer.diskStorage({
     },
     filename: (req, file, cb) => {
         const fileName = file.originalname.toLowerCase().split(' ').join('-');
-        cb(null, uuidv4() + '-' + fileName)
+        // cb(null, uuidv4() + '-' + fileName)
+         cb(null, fileName)
     }
 });
 
@@ -40,7 +41,7 @@ router.post('/user-profile', upload.single('profileImg'), (req, res, next) => {
     });
     user.save().then(result => {
         res.status(201).json({
-            message: "User registered successfully!",
+            message: "Avatar user enregistré!",
             userCreated: {
                 _id: result._id,
                 profileImg: result.profileImg
@@ -56,11 +57,34 @@ router.post('/user-profile', upload.single('profileImg'), (req, res, next) => {
 
 router.get("/", (req, res, next) => {
     User.find().then(data => {
-        res.status(200).json({
-            message: "User list retrieved successfully!",
-            users: data
-        });
+        res.status(200).json(
+            
+        //     {
+        //     message: "Avatar User affiché!",
+        //     users: data
+        // }
+
+        data
+        
+        
+        
+        );
     });
 });
+
+
+// router
+// .route("/:id")
+// // afficher un seul
+// .get((req, res) => {
+// 	User.findById(
+// 		req.params.id, (error, data) => {
+// 	if (error) {
+// 		return next(error);
+// 	} else {
+// 		res.json(data);
+// 	}
+// 	});
+// })
 
 module.exports = router;

@@ -3,6 +3,7 @@ let mongoose = require('mongoose');
 let cors = require('cors');
 let bodyParser = require('body-parser');
 let dbConfig = require('./database/db');
+let path = require('path');
 
 // Route
 const studentRoute = require('../backend/routes/student.route')
@@ -29,6 +30,7 @@ app.use(cors());
 app.use('/students', studentRoute)
 
 app.use('/public', express.static('public'));
+// app.use(express.static(path.join(__dirname, '..', 'build')));
 
 app.use('/api', api)
 
@@ -38,6 +40,12 @@ const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
   console.log('Connecté sur le port ' + port)
 })
+
+// add middleware
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, '..','altee-testa', 'build', 'index.html'));
+ })
+ 
 
 
 
