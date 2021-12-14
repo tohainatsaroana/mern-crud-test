@@ -4,7 +4,7 @@ router = express.Router();
 
 // Student Model
 let studentSchema = require("../models/Student");
-
+let User = require("../models/User");
 // CREATE Student
 router.post("/create-student", (req, res, next) => {
 studentSchema.create(req.body, (error, data) => {
@@ -19,14 +19,13 @@ studentSchema.create(req.body, (error, data) => {
 
 // READ Students
 router.get("/", (req, res) => {
-studentSchema.find((error, data) => {
-	if (error) {
-	return next(error);
-	} else {
-		console.log(data)
+studentSchema.find()
+.populate('profileImg')
+.then((data)=>{
+	console.log(data)
 	res.json(data);
-	}
-});
+})
+.catch(err => console.log(err))
 });
 
 // UPDATE student

@@ -23,7 +23,7 @@ const deleteStudent = () => {
 
 return (
 	<tr>
-	<td><Avatar alt="" src={profileImg}  style={{width: "60px", height: "60px" }}/> </td>
+	<td><Avatar alt="" src={profileImg?.profileImg}  style={{width: "60px", height: "60px" }}/> </td>
 	<td>{name}</td>
 	<td>{date}</td>
 	<td>{rollno}</td>

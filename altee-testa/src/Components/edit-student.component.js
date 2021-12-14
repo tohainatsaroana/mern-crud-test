@@ -5,7 +5,7 @@ import StudentForm from "./StudentForm";
 
 const EditStudent = (props) => {
 	const [formValues, setFormValues] = useState({
-		profileImg:"",
+		_id: null,
 		name: "",
 		date: "",
 		rollno: "",
@@ -13,21 +13,9 @@ const EditStudent = (props) => {
 	});
 
 
-	const onSubmit = (studentObject) => {
-		axios
-			.put(
-				"http://localhost:4000/students/update-student/" +
-				props.match.params.id,
-				studentObject
-			)
-			.then((res) => {
-				if (res.status === 200) {
-					alert("User modifié");
-					props.history.push("/student-list");
-				} else Promise.reject();
-			})
-			.catch((err) => alert("Erreur"));
-	};
+	// const onSubmit = (studentObject) => {
+	
+	// };
 
 
 	useEffect(() => {
@@ -37,8 +25,8 @@ const EditStudent = (props) => {
 				+ props.match.params.id
 			)
 			.then((res) => {
-				const { name, date, rollno, taille } = res.data;
-				setFormValues({ name, date, rollno, taille });
+				const {_id,  name, date, rollno, taille } = res.data;
+				setFormValues({ _id, name, date, rollno, taille });
 			})
 			.catch((err) => console.log(err));
 	}, [props.match.params.id]);
@@ -47,7 +35,7 @@ const EditStudent = (props) => {
 	return (
 		<StudentForm
 			initialValues={formValues}
-			onSubmit={onSubmit}
+			onSubmit={()=>props.onSubmit(formValues)}
 			enableReinitialize
 		>
 			MODIFICATION USER
