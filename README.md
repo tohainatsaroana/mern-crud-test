@@ -1,5 +1,5 @@
 ## MERN CRUD
-Testa MERN CRUD
+mern-crud-test
 
 ### Front end
 
