@@ -1,19 +1,19 @@
-# TESTA
+## MERN CRUD
 Testa MERN CRUD
 
-## Frontend
+### Front end
 
-### Entrer dans le dossier altee-testa puis `npm start`
+#### Enter the altee-testa folder then `npm start`
 
-Ouvrir [http://localhost:3000] pour le voir sur votre navigateur.
+Open [http://localhost:3000] to view on your browser.
 
 
-## Backend
+### Backend
 
-### Entrer dans le dossier backend puis `npm start`
+#### Enter backend folder then `npm start`
 
-PORT = 4000
+PORT=4000
 
-module.exports = {
+module. exports = {
     db: 'mongodb://localhost:27017/testa'
   };
