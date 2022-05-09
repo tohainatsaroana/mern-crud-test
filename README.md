@@ -5,7 +5,7 @@ mern-crud-test
 
 #### Enter the altee-testa folder then `npm start`
 
-Open [http://localhost:3000] to view on your browser.
+Open [http://localhost:3000](http://localhost:3000/) to view on your browser.
 
 
 ### Backend
